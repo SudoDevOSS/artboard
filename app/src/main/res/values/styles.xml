@@ -1,0 +1,12 @@
+<resources>
+
+    <style name="Widget.Theme.Artboard.MyView" parent="">
+        <item name="android:background">@color/gray_400</item>
+        <item name="exampleColor">@color/light_blue_400</item>
+    </style>
+
+    <style name="Title" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>
