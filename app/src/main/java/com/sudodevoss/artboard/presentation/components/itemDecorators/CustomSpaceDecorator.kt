@@ -34,16 +34,16 @@ class CustomSpaceDecorator(
                 setHorizontalSpacing(parent, view, outRect)
             }
             SpacingOrientation.Vertical -> {
-                setVerticalSpacing(parent, view, outRect)
+                setVerticalSpacing(outRect)
             }
             SpacingOrientation.Both -> {
                 setHorizontalSpacing(parent, view, outRect)
-                setVerticalSpacing(parent, view, outRect)
+                setVerticalSpacing(outRect)
             }
         }
     }
 
-    private fun setVerticalSpacing(parent: RecyclerView, child: View, outRect: Rect) {
+    private fun setVerticalSpacing(outRect: Rect) {
         outRect.bottom = mSpaceHeight.toPx().toInt()
     }
 
