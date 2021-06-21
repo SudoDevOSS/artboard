@@ -1,5 +1,6 @@
 package com.sudodevoss.artboard.ioc
 
+import androidx.paging.ExperimentalPagingApi
 import com.sudodevoss.artboard.presentation.screens.home.HomeViewModel
 import com.sudodevoss.artboard.utils.imageLoader.ImageLoader
 import com.sudodevoss.artboard.utils.imageLoader.ImageLoaderImpl
@@ -14,6 +15,7 @@ import org.kodein.di.bind
 import org.kodein.di.instance
 import org.kodein.di.provider
 
+@ExperimentalPagingApi
 object DIConfigurator {
     private val mediaTracksDIModule = DI.Module("mediaTracks") {
         val dataSourceTag = "remoteDataSource"
