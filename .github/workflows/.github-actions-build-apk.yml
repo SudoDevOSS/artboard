@@ -1,5 +1,5 @@
 name: Build
-on: [pull_request, push]
+on: [ pull_request, push ]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -9,8 +9,8 @@ jobs:
       - name: Build the app
         run: ./gradlew build
       - name: Archive production artifacts
-          uses: actions/upload-artifact@v2
-          with:
-            name: dist
-            path: |
-              app/build/outputs/apk/debug
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: |
+            app/build/outputs/apk/debug
