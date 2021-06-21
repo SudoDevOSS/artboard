@@ -12,5 +12,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: dist
-          path: |
+          path: | # For demo use debug apk
             app/build/outputs/apk/debug
