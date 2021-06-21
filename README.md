@@ -4,7 +4,7 @@
 
 ## Overview
 
-Simple android application to list images of albums and track info
+Simple android project to fech and display list of media tracks using Flow & Paging Library 
 
 ## Getting Started
 
