@@ -1,13 +1,15 @@
-package com.sudodevoss.artboard.presentation.adapters
+package com.sudodevoss.artboard.presentation.adapters.mediaTracksAdapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sudodevoss.artboard.R
+import com.sudodevoss.artboard.application.comparators.MediaTrackComparator
 import com.sudodevoss.artboard.utils.imageLoader.ImageLoader
 import com.sudodevoss.core.domain.art.models.MediaTrack
 
@@ -15,7 +17,7 @@ class MediaTracksAdapter(
     private val mMediaTracks: MutableList<MediaTrack>,
     private val mImageLoader: ImageLoader
 ) :
-    RecyclerView.Adapter<MediaTracksAdapter.ViewHolder>() {
+    PagingDataAdapter<MediaTrack, MediaTracksAdapter.ViewHolder>(MediaTrackComparator) {
 
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -51,12 +53,12 @@ class MediaTracksAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val currentTrack = mMediaTracks[position]
-        holder.mediaName.text = currentTrack.name
-        holder.generes.text = currentTrack.genres.joinToString(", ")
-        holder.playCount.text = currentTrack.listenerCount.toString()
-        mImageLoader.load(currentTrack.currentTrack.artworkUrl, holder.mediaArt)
+        val currentTrack = getItem(position)
+        holder.mediaName.text = currentTrack?.name ?: ""
+        holder.generes.text = currentTrack?.genres?.joinToString(", ") ?: ""
+        holder.playCount.text = currentTrack?.listenerCount.toString() ?: ""
+        if (currentTrack != null) {
+            mImageLoader.load(currentTrack.currentTrack.artworkUrl, holder.mediaArt)
+        }
     }
-
-    override fun getItemCount(): Int = mMediaTracks.count()
 }

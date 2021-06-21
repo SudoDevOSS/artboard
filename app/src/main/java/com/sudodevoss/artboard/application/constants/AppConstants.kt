@@ -12,7 +12,7 @@ object AppConstants {
     /**
      * Min required length for search query
      */
-    const val MIN_SEARCH_QUERY_LENGTH = 3
+    const val MIN_SEARCH_QUERY_LENGTH = 1
 
     /**
      * Default page size in pagination
